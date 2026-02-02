@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barcode Scanner</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="libs/zxing.min.js"></script>
+</head>
+<body>
+  <h1>Bid Barn Scanner</h1>
+
+  <!-- Live Barcode Scanner -->
+  <div id="scanner-container">
+    <video id="scanner" autoplay muted></video>
+    <p id="scanner-status">Scanning for 1D barcodes...</p>
+  </div>
+
+  <!-- Form for Product Details -->
+  <form id="product-form">
+    <label for="asin">ASIN:</label>
+    <input type="text" id="asin" placeholder="Scan barcode..." readonly />
+
+    <label for="title">Product Title:</label>
+    <input type="text" id="title" placeholder="Amazon product title" required />
+
+    <label for="description">Description:</label>
+    <textarea id="description" placeholder="Amazon product description"></textarea>
+
+    <label for="price">Retail Price:</label>
+    <input type="number" id="price" placeholder="$0.00" step="0.01" required />
+
+    <label for="sale-price">Sale Price:</label>
+    <input type="number" id="sale-price" placeholder="$0.00" step="0.01" readonly />
+
+    <button type="button" id="add-product">Add Product to CSV</button>
+  </form>
+
+  <!-- Download CSV -->
+  <button id="download-csv" disabled>Download CSV</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
